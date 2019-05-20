@@ -1,0 +1,67 @@
+@import 'variables';
+
+@import 'animation';
+@import 'spinner';
+@import 'selected';
+@import 'search';
+
+@border-width: @vs-border-width;
+@border-style: @vs-border-style;
+@border-color: @vs-border-color;
+@border-radius: @vs-border-radius;
+
+.vs__toggle-frame {
+  appearance: none;
+  display: flex;
+  padding: 0 0 4px 0;
+  background: none;
+  border: @border-width @border-style @border-color;
+  border-radius: @border-radius;
+  white-space: normal;
+}
+
+.vs__selected-section {
+  display: flex;
+  flex-basis: 100%;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  padding: 0 2px;
+  position: relative;
+}
+
+.vs__actions-section {
+  display: flex;
+  align-items: center;
+  padding: 4px 6px 0 3px;
+
+  .vs__clear {
+    fill: @vs-controls-color;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 8px;
+  }
+}
+
+.vs__select-section {
+  /* List Items */
+  .vs__select-item {
+    line-height: 1.42857143; /* Normalize line height */
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    color: #333; /* Overrides most CSS frameworks */
+    white-space: nowrap;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .vs__select-item--highlight {
+    background: @vs-state-active-bg;
+    color: @vs-state-active-color;
+  }
+}
+
