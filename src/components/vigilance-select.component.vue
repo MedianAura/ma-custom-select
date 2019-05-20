@@ -62,7 +62,7 @@ import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator'
 
 @Component
 export default class VigilanceSelectComponent extends Vue {
-  @Prop({ default: [], required: true })
+  @Prop({ default: (): any[] => [], required: true })
   public searchResults!: any[]
 
   @Prop()
