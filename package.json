@@ -4,12 +4,21 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve:build": "vue-cli-service serve --mode production",
+    "build": "npm run build:lib && npm run build:docs && npm run delete:reports",
+    "build:docs": "vue-cli-service build --dest docs --mode production",
+    "build:lib": "vue-cli-service build --target lib ./src/main.ts",
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "test:unit:watch": "vue-cli-service test:unit --watch",
+    "ui": "vue ui",
+    "delete-docs-report": "rm ./docs/report.html",
+    "delete-dist-report": "rm ./dist/report.html",
+    "delete:reports": "npm run delete-docs-report && npm run delete-dist-report"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
@@ -17,6 +26,7 @@
   },
   "devDependencies": {
     "@types/jest": "^23.1.4",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@vue/cli-plugin-babel": "^3.7.0",
     "@vue/cli-plugin-e2e-cypress": "^3.7.0",
     "@vue/cli-plugin-eslint": "^3.7.0",
@@ -29,10 +39,12 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-vue": "^5.0.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "lint-staged": "^8.1.5",
+    "prettier": "^1.17.1",
     "ts-jest": "^23.0.0",
     "typescript": "^3.4.3",
     "vue-template-compiler": "^2.5.21"

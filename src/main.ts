@@ -1,8 +1,10 @@
-import Vue from "vue";
-import App from "./App.vue";
+import Vue, { VNode } from 'vue'
+import App from './App.vue'
+import { VigilanceSelectPlugin } from '@/plugin'
 
-Vue.config.productionTip = false;
+Vue.use(VigilanceSelectPlugin)
+Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App)
-}).$mount("#app");
+  render: (h): VNode => h(App)
+}).$mount('#app')
